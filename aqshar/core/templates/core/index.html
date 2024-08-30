@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Welcome | aक्षर</title>
+    {% load static %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Italiana&display=swap" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <style>
+         body {
+            background-image: linear-gradient(to right, #f7f2eb , #bad6eb);
+            background-size: 200%;
+            font-family: "italiana", sans-serif;
+            font-weight: 600;
+            margin: 0;
+            padding: 0;
+          }
+          .top-space {
+            height: 20px;
+            width: 100%;
+            background-image: linear-gradient(to right, #f7f2eb , #bad6eb);
+          }
+          
+          .content {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+
+          .container {
+            width: 906px;
+            height: 262px;
+            margin-bottom: 10px;
+            position: relative;
+          }
+
+          .navbar {
+          text-align: left; 
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background-color: #081f5c;
+          color: #bad6eb;
+          padding: 10px 20px;
+          }
+  
+          .logo {
+          font-size: 30px;
+          font-weight: bold;
+          font-family: 'Cormorant Garamond', serif;
+          }
+
+          .navbar a {
+            color: #bad6eb; /* white text */
+            text-decoration: none;
+            margin:  20px;
+            
+          }
+          .about {
+            width: 100%; 
+          
+            /* 50% width for the About section */
+          }
+          .nav-about{
+              color: #bad6eb;
+          }
+          .dropdown{
+              display: none;
+              position: absolute;
+              margin-top: 30px;
+              /* display: inline-block; */
+          }
+          .nav-about:hover + .dropdown{
+              display: block;
+              background-color: #081f5c;
+              opacity: 0.9;
+              margin-right: 5px;
+              border-radius: 2%;
+              padding: 20px;
+              border: 10px solid #081f5c;
+              color: #bad6eb;
+              text-align: justify;
+          }
+
+          .background-carousel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; /* Ensure the carousel is behind other content */
+}
+
+.background-carousel img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
+
+.background-carousel img.active {
+    opacity: 0.5; /* Adjust the opacity value to make the images more opaque */
+}
+
+@keyframes carousel {
+    0% {
+        opacity: 0.6;
+    }
+    25% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 0.6;
+    }
+    75% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 0.6;
+    }
+}
+
+          .book-lovers {
+            position: relative;
+            margin: 80px auto; 
+            overflow: visible;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #334eac; 
+            text-align: center;
+            width: 453px;
+            height: 292px;
+            line-height: 262px;
+            margin-bottom: 0px;
+            font-size: 50px;
+          }
+          .book-lovers img {
+            position: absolute;
+            width: 453px; /* Adjust width of each part */
+            height: 262px; /* Adjust height of each part */
+            animation: move1 3s forwards ease-in-out;
+            /* animation-duration: 5s; */
+            /* animation-name: slidein; */
+            /* animation-name: fadeInOut, moveLeft300px, bounce; */
+          }
+          @keyframes move1 {
+            0% {
+                top: -500px; 
+                left:0px;
+            }
+            100% {
+                top: -90px; /* Final position in the center */
+                left: 5px; /* Final position in the center */
+            }
+          }
+
+          .aqshar-calig {
+            width: 1105px;
+            height: 20px;
+           margin: auto;
+           font-family: 'cormorant garamond', serif;
+            text-align: center;
+            color: #444ea8;
+            margin-bottom: 10px;
+            margin-top: 10px;
+            width: 50%;
+          }
+
+          .image-space {
+            width: 906px;
+            height: 404px;
+            border-radius:5px;
+            box-shadow: 5px 5px 3px rgba(109, 148, 208, 0.5);
+            display: grid;
+            overflow: hidden;
+            place-items: center;
+            position: relative;
+            /* background-color: #081f5c;  */
+           /* background-image: linear-gradient(to bottom right,#3E5151 ,#DECBA4); */
+            margin-top: 80px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 100px;
+          }
+          .carousel-inner img {
+            width: 100%;
+            height: 100%;
+            object-fit: conatin; /* Ensure the image covers the entire space */
+}
+          .forsell {
+          width: 438px;
+          border-radius: 2%;
+          height: 325px;
+          box-shadow: 5px 5px 3px #7096d1;
+          text-align: center;
+          font-size: 26px;
+          margin: 15px;
+          margin-top: 10px;
+          margin-bottom: 100px;
+          }
+          
+          .forsell li {
+          color: #bad6eb;
+          list-style-type: none;
+          margin-bottom: 5px;
+          align-items: center; /* Center the content vertically */
+          }
+
+          .image-container {
+            position: relative;
+            width: 438px;
+            /* margin-left: 50px; */
+            height: 325px;
+            /* margin-top: 20px; */
+            /* border: 2px solid rgba(2, 16, 31, 0.6); */
+            margin-bottom: 20px;
+            border-radius: 2%;
+            /* margin-top: 35px; */
+            overflow: hidden;
+
+          }
+
+          .overlay {
+            position: absolute;
+            text-align: center;
+            display: flex;
+            top: 0;
+            left: 0;
+            width: 100%;
+            align-items: center; 
+            justify-content: center;
+            color: #d9e2e9;
+            font-size: 25px;
+            font-weight: bold;
+            height: 100%;
+            background-color: rgba(2, 16, 31, 0.6); /* Adjust opacity as needed */
+            opacity: 0;
+            transition: opacity 0.3s ease;
+          }
+
+            .image-container:hover .overlay {
+              opacity: 1;
+            }
+
+            .overlay:before {
+              content: '';
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              color: #fff;
+              font-size: 20px;
+              font-weight: bold;
+            }
+
+          .selldonate-link {
+              text-decoration: none;
+              color: #081f5c;
+              font-size: larger;
+              text-align: center;
+              display:block;
+              margin-top:0px ;
+              margin-bottom: 60px;
+            }
+          
+            .selldonate-link:hover{
+              color: #5298cd;
+            }
+
+         .sdg{
+          color: #081f5c;
+          font-size: 45px;
+          text-align: center;
+          margin-top: 30px;
+          /* margin-bottom: 30px; */
+         }
+         .sdgnext{
+          text-align: justify;
+          color: #081f5c;
+          font-size: 35px;
+          /* text-align: center; */
+          margin-top: 10px;
+          margin-bottom: 40px;
+         }
+
+         .orgs1{
+          text-align: justify;
+          color: #081f5c;
+          font-size: 45px;
+          /* text-align: center; */
+          margin-top: 10px;
+          margin-bottom: 40px;
+         }
+      
+      .goals {
+  width: 450px;
+  height: 450px;
+  border-radius: 8%;
+  box-shadow: 5px 5px 3px #7096d1;
+  background-color: #bad6eb;
+  color: #081f5c;
+  text-align: center;
+  font-size: 26px;
+  margin: 25px;
+  margin-top: 10px;
+  margin-bottom: 100px;
+}
+
+.goals-overlay {
+  position: absolute;
+  text-align: center;
+  transition: opacity 0.5s ease, height 0.3s ease;
+  height:0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(2, 16, 31, 0.6);
+  opacity: 0;
+  /* transition: opacity 0.3s ease; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.goals-image-container:hover .goals-overlay {
+  opacity: 1;
+  height:100%;
+}
+
+.goals-overlay img {
+  max-width: 100%;
+  max-height: 100%;
+  
+}
+
+.goals-image-container {
+  position: relative;
+  border-radius: 25px;
+  width: 450px;
+  height: 450px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.goals-feature-box:hover .goals-image-container img {
+  transform: scale(1.1);
+}
+
+.orgs {
+  width: 350px; /* Set to match image width */
+  height: 350px; /* Set to match image height */
+  border-radius: 8%;
+  box-shadow: 5px 5px 3px rgba(42, 32, 134, 0.5); /* Match box shadow with image */
+  background-color: #bad6eb;
+  color: #081f5c;
+  text-align: center;
+  font-size: 26px;
+  margin: 25px;
+  margin-top: 10px;
+  margin-bottom: 100px;
+}
+
+.orgs-overlay {
+  position: absolute;
+  text-align: center;
+  transition: opacity 0.5s ease, height 0.3s ease;
+  height: 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background-color: rgba(50, 89, 131, 0.6);
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.orgs-image-container:hover .orgs-overlay {
+  opacity: 1;
+  height: 100%;
+}
+
+.orgs-overlay img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.orgs-image-container {
+  position: relative;
+  border-radius: 8%; /* Match border radius with .orgs */
+  width: 350px; /* Set to match image width */
+  height: 350px; /* Set to match image height */
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.orgs-feature-box:hover .orgs-image-container img {
+  transform: scale(1.1);
+}
+
+
+.donors{
+  text-align: justify;
+  color: #081f5c;
+  font-size: 45px;
+  /* text-align: center; */
+  margin-top: 35px;
+  margin-bottom: 30px;
+ }
+
+
+ .feature-img {
+  position: relative;
+  overflow: hidden;
+  width: 300px;
+  height: 300px;
+  border: 4px solid #081f5c;
+  border-radius: 16%;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2); /* Adjusted box shadow */
+  box-sizing: border-box;
+  margin-bottom: 60px;
+  margin-right: 30px;
+
+}
+.col-md-4 {
+  flex: 0 0 25%; /* Adjust the width to fit four items in one row */
+  max-width: 25%; /* Adjust the width to fit four items in one row */
+}
+.feature_box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.feature-img img {
+  transition: transform 0.5s ease;
+  width: 100%;
+  height: auto;
+}
+
+.feature-box:hover .feature-img img {
+  transform: scale(1.1);
+}
+
+.feature-details {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: rgba(26, 23, 56, 0.7);
+  color: #f7f2eb;
+  width: 100%;
+  padding: 15px;
+  box-sizing: border-box;
+  transition: bottom 0.5s ease;
+  border-radius: 16%; /* Match border radius with .feature-img */
+}
+
+.above-footer p {
+  font-size: 1.6em;
+  font-family: 'Comorant Garamond', serif;
+  color: #081f5c;
+  position: absolute;
+  bottom: -1000px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.feature-box:hover .feature-details {
+  bottom: -100%;
+}
+
+.feature-details h4 {
+  margin: 0;
+}
+
+.feature-details p {
+  margin: 20px 0;
+}
+
+.feature-details span {
+  display: block;
+}
+
+ .footer {
+          margin-top: 10px;
+          background-color: #bad6eb; 
+          background-size: auto;
+          margin: auto;
+          margin-left: 0px;
+          margin-bottom: 0px;
+          border-top: 5px solid #081f5c;
+          padding: 10px;
+          width: 100%;
+          text-align: center;
+          display: flex;
+          align-items: left;
+          }
+  
+          .additional-container {
+          width: 1200px;
+          text-align:center;
+          margin: 0 auto;
+          padding: 10px;
+          margin-right: 0px;
+          }
+          
+          .footer-container {
+          text-align: left;
+          margin-right: 20px;
+          width: 95%;
+          }
+          .about-sections {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+          }
+
+          .contactus  {
+            margin-top: 10px;
+          display: flex;
+          margin-left: 10px; 
+          margin-right: 40px;
+          width: 250px;
+          font-size: 20px;
+          flex-direction: column;
+          align-items: left;
+          }
+
+          .communities {
+            margin-top: 10px;
+          display: flex;
+          margin-left: 20px; 
+          width: 250px;
+          font-size: 20px;
+          flex-direction: column;
+          align-items: left;
+          }
+          .menu{
+            margin-top: 10px;
+            display: flex;
+          margin-left: 0px; 
+          width: 250px;
+          font-size: 20px;
+          flex-direction: column;
+          align-items: left;
+          }
+          .footer-title {
+          margin-left: 20px;
+          border-radius: 1%;
+          border-color: #bad6eb;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 25px;
+            color: #081f5c; 
+          }
+          .footer-titlem {
+          border-radius: 1%;
+          border-color: #bad6eb;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 25px;
+            color: #081f5c; 
+          
+          }
+          .footer-text {
+            text-align: left;
+            justify-content: space-between;
+            font-size: 19px;
+            color: #081f5c;
+          }
+          .footer-menu {
+            list-style-type: none;
+            padding: 0px;
+            margin-left: 20px;
+          }
+          .footer-link {
+            text-decoration: none;
+            color: #081f5c;
+          }
+          .footer-link:hover {
+            color: #7096d1;
+          } 
+          @media only screen and (max-width: 800px) {
+            .footer {
+              flex-direction: column;
+              align-items: center;
+            }
+            .footer-container {
+              width: 100%;
+              margin-bottom: 20px;
+            }
+}
+
+      </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">aक्षर</div>
+        <div class="nav-items">
+          <a href="{% url 'login' %}">Login</a>
+          <a href="{% url 'signup' %}">Register</a>
+          <a href="{% url 'index' %}#chatbot-container">Chat with Us</a>
+          <a href="{% url 'catalog'%}" target="blank">Catalog</a>
+          <a class="nav-about">About Us</a>
+            <div class="dropdown">aक्षर is an initiative aimed at promoting inclusive literacy and sustainable consumption. Focused on the 4th and 12th SDGs, our mission is to bridge the gap between book donors, sellers and recipients, facilitating the transfer of knowledge and fostering a culture of learning. Through our platform, we connect individuals and organizations, empowering them to contribute to a more equitable and literate society.</div>
+    </div>
+</div>
+<div id="chatbot-container">
+  <div class="chatbot"></div>
+
+<div class="background-carousel">
+    <img src="{% static 'images/booksbg3.jpeg' %}" alt="Our Work">
+    <img src="{% static 'images/morescape.jpg' %}" alt="Our Work">
+    <img src="{% static 'images/testimonials4.jpeg' %}" alt="Our Work">
+    <img src="{% static 'images/serene3.jpeg' %}" alt="Our Work">
+</div>
+
+  <div class="content">
+      <div class="container">
+        <div class="book-lovers" >
+            <img src="{%static 'images/aqsharlogo.png'%}"  href="#" alt="Our Work" style="width: 420px; height: 400px; display: center;">
+        </div>
+      </div>
+    </div>
+
+    <div class="aqshar-calig">
+     <h1 href="#aboutus">  ~ aQshar ~ </h1> 
+    </div>
+
+    <div class="image-space">
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100" src="{% static 'images/girlsreads.png' %}" alt="First slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="{% static 'images/kidsraisebooks.png' %}" alt="Second slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="{% static 'images/teacherteach.png' %}" alt="Third slide">
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+   
+
+  <div class="content">
+        <div class="forsell">
+          <div class="image-container">
+            <img src="{% static 'images/sellonaqshar.jpeg' %}" alt="Sell to aक्षर" style= "width: 450px; height:350px; overflow: hidden;" >
+            <div class="overlay">Sell on aक्षर. </div>
+          </div>
+          <a href="{% url 'selling' %}" class="selldonate-link" >For Sellers</a>
+        </div>
+        
+        <div class="forsell">
+          <div class="image-container">
+            <img src="{% static 'images/charitydon.jpg' %}" alt="Donate for aक्षर" style= "width: 450px; height:400px; overflow: hidden;" >
+            <div class="overlay">Donate through aक्षर. </div>
+          </div>
+          <a href="{% url 'donating' %}" class="selldonate-link" >For Donors</a>
+        </div>
+
+        <div class="forsell">
+          <div class="image-container">
+            <img src="{% static 'images/buybooks.jpg' %}" alt="Buy on aक्षर" style= " width: 450px; height:330px;">
+            <div class="overlay" href="{% url 'catalog' %}">Browse on aक्षर. </div>
+          </div>
+          <a href="{% url 'catalog' %}" class="selldonate-link">For Buyers and Acceptors</a>
+        </div>
+</div>
+
+
+    <div class="content">
+          <div class="sdg">
+            Focused on
+          </div>
+    </div>
+      <div class="content">
+        <div class="sdgnext">
+          Sustainable Development Goals
+        </div>
+    </div>
+
+
+    <div class="content">
+          <div class="goals">
+            <div class="goals-feature-box">
+            <div class="goals-image-container">
+              <img src="{% static 'images/g4.jpg' %}" alt="Donate for aक्षर" style= " width: 565px; height:635px;border-radius: 5%;">
+            
+              <div class="goals-overlay">
+                <img src="{% static 'images/goal4sdgp.png' %}" alt="Donate for aक्षर" style= " width: 500px; height:500px;border-radius: 5%;">
+              </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="goals">
+            <div class="goals-feature-box">
+            <div class="goals-image-container">
+              <img src="{% static 'images/g12.jpg' %}" alt="Donate for aक्षर" style= " width: 615px; height:615px;border-radius: 5%;">
+            
+              <div class="goals-overlay">
+                <img src="{% static 'images/goal12sdgp.png' %}" alt="Donate for aक्षर" style= " width: 500px; height:500px;border-radius: 5%;">
+              </div>
+              </div>
+            </div>
+          </div>
+    </div>
+
+<div id="our-organisations">
+  <div class="content">
+    <div class="orgs1">
+      Our Partnered Organisations
+    </div>
+</div>
+
+<div class="content">
+  <div class="orgs">
+    <div class="orgs-feature-box">
+    <div class="orgs-image-container">
+      <img src="{% static 'images/carbg2.jpeg' %}" alt="Donate for aक्षर" style= " width: 500px; height:500px;border-radius: 5%;">
+    
+      <div class="orgs-overlay">
+        <img src="{% static 'images/RCIlogo.jpeg' %}" alt="Donate for aक्षर" style= " width: 300px; height:300px;border-radius: 5%;">
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="orgs">
+    <div class="orgs-feature-box">
+    <div class="orgs-image-container">
+      <img src="{% static 'images/enactfinal.png' %}" alt="Donate for aक्षर" style= " width: 500px; height:500px;border-radius: 5%;">
+    
+      <div class="orgs-overlay">
+        <img src="{% static 'images/enactus.jpg' %}" alt="Donate for aक्षर" style= " width: 300px; height:300px;border-radius: 5%;">
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="orgs">
+    <div class="orgs-feature-box">
+    <div class="orgs-image-container">
+      <img src="{% static 'images/uttejnafinal.jpeg' %}" alt="Donate for aक्षर" style= " width: 500px; height:500px;border-radius: 5%;">
+    
+      <div class="orgs-overlay">
+        <img src="{% static 'images/uttejana.png' %}" alt="Donate for aक्षर" style= " width: 300px; height:300px;border-radius: 5%; background-color: #fff;">
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+<div id="donors-section" style="margin-left: 60px;">
+  <div  class="content">
+    <div class="donors">
+      Our Top Donors
+    </div>
+  </div>
+
+  <div class="content" style="height: 500px; margin-top:10px; display: flex-root;">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="feature-box" >
+                <div class="feature-img">
+                    <img src="{% static 'images/ADITTI.jpeg' %}" style="border-radius: 10%;">
+  
+                    <div class="feature-details">
+                        <h4>Aditi Goswami</h4>
+                        <p>I love to see smiles on people’s faces. And that is my motto.</p>
+                        <div>
+                            <span><i class="fa fa-map-marker"></i>&nbsp;Delhi, India</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="feature-box" >
+                <div class="feature-img">
+                    <img src="{% static 'images/sdgbg4.jpeg' %}" style="border-radius: 10%;">
+  
+                    <div class="feature-details">
+                        <h4>Sanskriti</h4>
+                        <p>It is a very gratifying experience, being able to help people in need. I'm so thankful to aQshar for providing me with that opportunity.</p>
+                        <div>
+                            <span><i class="fa fa-map-marker"></i>&nbsp;Delhi, India</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="feature-box">
+                <div class="feature-img">
+                    <img src="{% static 'images/bhavya.jpeg' %}" style="border-radius: 10%;">
+  
+                    <div class="feature-details">
+                        <h4>Bhavya</h4>
+                        <p>If I am able to Donate, I will surely donate. It gives me immense relief when I see the smiles on the faces of the people I helped.</p>
+                        <div>
+                            <span><i class="fa fa-map-marker"></i>&nbsp;Delhi, India</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+          <div class="feature-box">
+              <div class="feature-img">
+                  <img src="{% static 'images/kashi.jpeg' %}" style="border-radius: 10%;">
+                  <div class="feature-details">
+                      <h4>Kashish</h4>
+                      <p>It is kind of my hobby to help those in need. And aQshar is providing me with a great platform to donate for those in need. </p>
+                      <div>
+                          <span><i class="fa fa-map-marker"></i>&nbsp;Delhi, India</span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  
+
+<div class="content" >
+  <div class="donors" style="margin-bottom: 80px;">
+    Our Aim
+  </div>
+</div>
+
+<div class="content" style="margin-bottom: 80px;">
+  <div class="goals">
+    <div class="goals-feature-box">
+    <div class="goals-image-container">
+      <img src="{% static 'images/11.png' %}" alt="Donate for aक्षर" style= " width: 460px; height:460px;border-radius: 5%;">
+      </div>
+    </div>
+  </div>
+
+  <div class="goals">
+    <div class="goals-feature-box">
+    <div class="goals-image-container">
+      <img src="{% static 'images/12.png' %}" alt="Donate for aक्षर" style= " width: 460px; height:460px;border-radius: 5%;">
+      </div>
+    </div>
+  </div>
+
+  <div class="goals">
+    <div class="goals-feature-box">
+    <div class="goals-image-container">
+      <img src="{% static 'images/13.png' %}" alt="Donate for aक्षर" style= " width: 460px; height:460px;border-radius: 5%;">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <footer class="footer">
+      <div class="additional-container">
+          <div class="footer-container about" style="margin-right: 0px;">
+              <h3 class="footer-titlem">About Us</h3>
+              <p class="footer-text" >aक्षर is an initiative aimed at promoting inclusive literacy and sustainable consumption. Focused on the 4th and 12th SDGs, our mission is to bridge the gap between book donors, sellers and recipients, facilitating the transfer of knowledge and fostering a culture of learning. Through our platform, we connect individuals and organizations, empowering them to contribute to a more equitable and literate society.</p>
+          </div>
+      </div>
+      <div class="footer-container menu">
+          <h3 class="footer-title">Menu</h3>
+          <ul class="footer-menu">
+              <li><a href="{% url 'account' %}" class="footer-link">My Account</a></li>
+              <li><a href="{% url 'checkout' %}"  target="blank" class="footer-link">My Cart</a></li>
+              <li><a href="{% url 'orders' %}" class="footer-link">My Orders</a></li>
+              <li><a href="#" class="footer-link">Homepage</a></li>
+          </ul>
+      </div>
+      <div class="footer-container communities">
+          <h3 class="footer-title">Communities</h3>
+          <ul class="footer-menu">
+              <li><a href="#donors-section" class="footer-link">Donors</a></li>
+              <li><a href="#our-organisations" class="footer-link">Investors</a></li>
+              <li><a href="#our-organisations" class="footer-link">Organisations</a></li>
+              <li><a href="#donors-section" class="footer-link">Creators</a></li>
+          </ul>
+      </div>
+      <div class="footer-container contactus">
+        <h3 class="footer-title">Contact Us</h3>
+        <ul class="footer-menu">
+            <li><a href="https://www.instagram.com" target="_blank" class="footer-link">Instagram</a></li>
+            <li><a href="https://www.linkedin.com/feed/" target="_blank" class="footer-link">LinkedIn</a></li>
+            <li><a href="mailto:hehahuho9@gmail.com" target="_blank" class="footer-link">Gmail</a></li>
+            <li><a href="#" target="blank" class="footer-link">+91 123456789</a></li>
+        </ul>
+    </div>
+  </footer>
+  <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
+  <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const carouselImages = document.querySelectorAll(".background-carousel img");
+    let index = 0;
+  
+    setInterval(() => {
+      carouselImages.forEach((img) => {
+        img.classList.remove("active");
+      });
+  
+      index = (index + 1) % carouselImages.length;
+      carouselImages[index].classList.add("active");
+    }, 4000); // Adjust the duration as needed (in milliseconds)
+  });
+
+  window.botpressWebChat.init({
+      "composerPlaceholder": "Type somethig to start conversation",
+      "botConversationDescription": "Why fear, when SKAB is here",
+      "botId": "e7f94c9a-d134-4bd7-bd31-781957483ac4",
+      "hostUrl": "https://cdn.botpress.cloud/webchat/v1",
+      "messagingUrl": "https://messaging.botpress.cloud",
+      "clientId": "e7f94c9a-d134-4bd7-bd31-781957483ac4",
+      "webhookId": "15af7127-635a-4188-8c15-14cb4a8cab76",
+      "lazySocket": true,
+      "themeName": "prism",
+      "frontendVersion": "v1",
+      "theme": "prism",
+      "themeColor": "#2563eb"
+  });
+</script>
+</script>
+</body>
+</html>

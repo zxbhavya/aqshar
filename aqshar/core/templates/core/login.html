@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>Login | aक्षर</title>
+      <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Italiana&display=swap" rel="stylesheet">
+      {% load static %}
+      <style>
+         *{
+           margin: 0;
+           padding: 0;
+           box-sizing: border-box;
+           user-select: none;
+           font-family: 'italiana' , sans-serif;
+          
+         }
+         .split-left{
+           display: flex;
+            height: 80%;
+         }
+         .bg-img{
+          background-image: linear-gradient(to right, #f7f2eb , #bad6eb);
+           height: 100vh;
+           background-size: cover;
+           background-position: center;
+         }
+         .bg-img:after{
+           position: absolute;
+           content: '';
+           top: 0;
+           left: 0;
+           height: 100%;
+           width: 100%;
+          left: 0;
+
+}
+.right {
+  right: 0;
+  background-image: linear-gradient(to right, #f7f2eb , #bad6eb);
+
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.centered img {
+  height: 1100px;
+  width: 1400px;
+  border-radius: 0%;
+}
+      
+         .content{
+           position: absolute;
+           top: 50%;
+           left: 80%;
+           z-index: 999;
+           text-align: center;
+           padding: 40px 30px;
+           width: 390px;
+           transform: translate(-50%,-50%);
+           background: 7096d1;
+           backdrop-filter: blur(10px);  
+           border-radius: 10px 10px 10px 10px;
+           box-shadow: -1px 4px 28px 0px rgba(0,0,0,0.65);
+         }
+         .content header{
+           color: #081f5c;
+           font-size: 33px;
+           font-weight: 600;
+           margin: 0 0 35px 0;
+           /* font-family: "cormorant garamond", serif; */
+         }
+         .field{
+           position: relative;
+           height: 45px;
+           width: 100%;
+           display: flex;
+           background: rgba(255,255,255,0.94);
+         }
+         .field span{
+           color: #081f5c;
+           width: 40px;
+           line-height: 45px;
+         }
+         
+         .field input{
+           height: 100%;
+           width: 100%;
+           background: transparent;
+           border: none;
+           outline: none;
+           color: #222;
+           font-size: 16px;
+           /* font-family: "cormorant garamond", serif; */
+         }
+         .space{
+           margin-top: 16px;
+         }
+         .show{
+           position: absolute;
+           right: 13px;
+           font-size: 13px;
+           font-weight: 700;
+           color: #222;
+           display: none;
+           cursor: pointer;
+          /* font-family: "cormorant garamond", serif; */
+         }
+         .pass-key:valid ~ .show{
+           display: block;
+         }
+         .pass{
+           text-align: left;
+           margin: 10px 0;
+         }
+         .pass a{
+           color: #081f5c;
+           text-decoration: none;
+           /* font-family: "cormorant garamond", serif; */
+         }
+         .pass:hover a{
+           text-decoration: underline;
+           color:#7096d1;
+         }
+         .field input[type="submit"]{
+           background: #081f5c;
+           border: 1px solid #081f5c;
+           color: white;
+           font-size: 18px;
+           letter-spacing: 1px;
+           font-weight: 600;
+           cursor: pointer;
+           /* font-family: "cormorant garamond", serif; */
+         }
+         .field input[type="submit"]:hover{
+           background: #3e61a8;
+           border: #081f5c;
+         }
+         .login{
+           color:#081f5c ;
+           margin: 20px 0;
+           /* font-family: "cormorant garamond", serif; */
+         }
+         .links{
+           display: flex;
+           cursor: pointer;
+           color: white;
+           margin: 0 0 20px 0;
+         }
+         .google,.facebook{
+          font-family: 'italiana' , sans-serif;
+           width: 100%;
+           height: 45px;
+           line-height: 45px;
+           margin-left: 10px;
+         }
+         .google{
+          font-family: 'italiana' , sans-serif;
+           margin-left: 0;
+           background: #081f5c;
+           border: 1px solid #081f5c;
+         }
+         .facebook{
+          font-family: 'italiana' , sans-serif;
+           background: #081f5c;
+           border: 1px solid #081f5c;
+         }
+         .google:hover{
+           background: #3e61a8;
+           border: #3e61a8;
+         }
+         .facebook:hover{
+           background: #3e61a8;
+           border: #3e61a8;;
+         }
+         .links i{
+           font-size: 17px;
+         }
+         i span{
+           margin-left: 8px;
+           font-weight: 550;
+           letter-spacing: 1px;
+           font-size: 16px;
+           font-family: 'italiana' , sans-serif;
+           /* font-family: "cormorant garamond", serif; */
+         }
+         .signup{
+           font-size: 15px;
+           color: #081f5c;
+           font-family: 'italiana' , sans-serif;
+           /* font-family: "cormorant garamond", serif; */
+         }
+         .signup a{
+           color: #3498db;
+           text-decoration: none;
+         }
+         .signup a:hover{
+           text-decoration: underline;
+           color: #7096d1;
+         }</style>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+   </head>
+   <body>
+    <div class="split-left">
+      <div class="centered">
+        <img src="{% static 'images/loginbg.jpeg' %}" alt="Books">
+      </div>
+    </div>
+
+    <div class="split right">
+      <div class="bg-img">
+         <div class="content">
+          {% if messages %}
+          {% for message in messages %}
+              <div class="alert alert-success" style="margin-bottom: 10px; font-size: 17px; color: #081f5c;" role="alert">
+                  {{ message }}
+              </div>
+          {% endfor %}
+      {% endif %}
+            <header>Login</header>
+            
+            <form method="POST" action="{% url 'login' %}">
+                {% csrf_token %}
+
+                {% if error_message %}
+                <div class="error-message" style="margin-bottom: 12px; font-size: 17px; color: #081f5c; font-weight: 600;">
+                    {{ error_message }}
+                </div>
+            {% endif %}
+
+                <!-- {{ form.as_p }} -->
+                <div class="field" style="margin-bottom: 18px;">
+                  <span class="fa fa-user"></span>
+                  <input type="text" name="username" placeholder="Username" required>
+                  {{ form.username }}
+              </div>
+          
+              <div class="field space">
+                  <span class="fa fa-lock"></span>
+                  <span class="show">SHOW</span>
+                  <input type="password" name="password" class="pass-key" placeholder="Password" required>
+                  {{ form.password }}
+              </div>
+
+               <div class="pass">
+                  <a href="#">Forgot Password?</a>
+               </div>
+               
+               <div class="field">
+                  <input type="submit" value="LOGIN">
+               </div>
+            <div class="login">
+               Or login with
+            </div>
+            <div class="links">
+               <div class="google">
+                  <i class="fab fa-google"><span>Google</span></i>
+               </div>
+               <div class="facebook">
+                  <i class="fab fa-facebook-f"><span>Facebook</span></i>
+               </div>
+            </div>
+            <div class="signup">
+               Don't have account?
+               <a href="{% url 'signup' %}">Signup Here</a>
+            </div>
+         </div>
+      </div>
+      </div>
+      <script>
+         const pass_field = document.querySelector('.pass-key');
+         const showBtn = document.querySelector('.show');
+         showBtn.addEventListener('click', function(){
+          if(pass_field.type === "password"){
+            pass_field.type = "text";
+            showBtn.textContent = "HIDE";
+            showBtn.style.color = "#081f5c";
+          }else{
+            pass_field.type = "password";
+            showBtn.textContent = "SHOW";
+            showBtn.style.color = "#081f5c";
+          }
+         });
+      
+      </script>
+   </body>
+</html>
+

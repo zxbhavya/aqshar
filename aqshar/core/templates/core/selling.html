@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Sell | aक्षर</title>
+      <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Italiana&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=neon|ou+-tline|emboss|shadow-multiple">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <style>
+          .contentnew{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+
+
+        body {
+            background-image: linear-gradient(to right, #f7f2eb, #bad6eb);
+            font-family: "italiana", sans-serif;
+            font-weight: 550;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            min-height: 100vh;
+        }
+        .navbar {
+            text-align: left; 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #081f5c;
+            color: #bad6eb;
+            font-size: 18px;
+            padding: 10px 20px;
+        }
+        .logo {
+            font-size: 30px;
+            font-weight: bold;
+            margin-right: auto;
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .navbar a {
+            color: #bad6eb; /* white text */
+            text-decoration: none;
+            margin:  20px;
+        }
+        .about {
+            width: 100%; 
+        }
+        .nav-about{
+            color: #bad6eb;
+        }
+        .dropdown{
+            display: none;
+            position: absolute;
+            margin-top: 30px;
+        }
+        .nav-about:hover + .dropdown{
+         width:600px;
+            position: fixed; 
+            top: 0; 
+            right: 0;
+            margin-top: 70px;
+            display: block;
+            background-color: #081f5c;
+            opacity: 0.9;
+            margin-right: 5px;
+            border-radius: 2%;
+            padding: 20px;
+            border: 10px solid #081f5c;
+            color: #bad6eb;
+            text-align: justify;
+        }
+
+        .nav-items a {
+            color: #bad6eb;
+            text-decoration: none;
+            margin: 18px;
+        }
+        .nav-items {
+            /* display: flex; */
+            margin-right: 20px;
+        }
+
+        .aqshar-calig {
+            width: 100%;
+            margin: auto;
+            font-family: 'Cormorant Garamond', serif;
+            text-align: center;
+            color: #444ea8;
+            margin-bottom: 50px;
+            margin-top: 50px;
+            font-size: 40px;
+        }
+        .form-container {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .input-field {
+            margin: 10px;
+            padding: 10px 20px; 
+            width: 400px;
+            border: 2px solid #000;
+            border-radius: 5px;
+            background-color: transparent;
+            color: #000;
+            font-size: 17px;
+            /* font-family: 'Cormorant Garamond', serif; */
+        }
+
+        .icon {
+            font-size: 23px;
+        }
+
+
+        .footer {
+          margin-top: 10px;
+          background-color: #bad6eb; /* off-white background */
+          margin: auto;
+          margin-left: 0px;
+          margin-bottom: 0px;
+          border-top: 5px solid #081f5c;
+          /* border: 5px solid #8f9779; */
+          padding: 10px;
+          text-align: center;
+          display: flex;
+          font-weight: bold;
+          /* justify-content: space-between; */
+          align-items: left;
+          }
+  
+          .additional-container {
+          width: 1200px;
+          text-align:center;
+          margin: 0 auto; /* Center-align the container */
+          /* background-color: #DECBA4;  */
+          padding: 10px; /* Add padding for spacing */
+          margin-right: 0px;
+          }
+          
+          .footer-container {
+          /* border: 5px solid #000000; */
+          text-align: left; /* Center-align content */
+          margin-right: 20px;
+          width: 80%;
+          }
+          .about-sections {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+          }
+
+          .contactus  {
+            margin-top: 10px;
+          display: flex;
+          margin-left: 10px; 
+          margin-right: 40px;
+          /* Shift to the right */
+          width: 250px;
+          font-size: 20px;
+          flex-direction: column;
+          align-items: left;
+          }
+
+          .communities {
+            margin-top: 10px;
+          display: flex;
+          margin-left: 20px; 
+          /* Shift to the right */
+          width: 250px;
+          font-size: 20px;
+          flex-direction: column;
+          align-items: left;
+          }
+          .menu{
+            margin-top: 10px;
+            display: flex;
+          margin-left: 0px; 
+          width: 250px;
+          font-size: 20px;
+          flex-direction: column;
+          align-items: left;
+          }
+          .footer-title {
+          margin-left: 20px;
+          border-radius: 1%;
+          border-color: #bad6eb;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 25px;
+            color: #081f5c; 
+          }
+          .footer-titlem {
+          border-radius: 1%;
+          border-color: #bad6eb;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 25px;
+            color: #081f5c; 
+          
+          }
+          .footer-text {
+            /* color: #ede7e7; */
+            text-align: left;
+            justify-content: space-between;
+            font-size: 19px;
+            color: #081f5c;
+          }
+          .footer-menu {
+            list-style-type: none;
+            padding: 0px;
+            margin-left: 20px;
+          }
+          .footer-link {
+            text-decoration: none;
+            color: #081f5c;
+          }
+          .footer-link:hover {
+            color: #7096d1;
+          }
+        
+         .timing-section,
+         .category-section {
+         margin-bottom: 20px;
+           margin-left: 10px;
+         }
+
+         .time-inputs {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         margin-bottom: 10px;
+         background-color: transparent;
+           margin-left: -40px;
+           margin-top: 20px;
+         }
+        
+         .time-inputs label {
+         margin-right: 10px;
+         margin-left: 10px;
+           
+         }
+         .time-field {
+         width: 60px;
+           background-color: transparent;
+         }
+        
+         .time-sliders {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         background-color: #081f5c;
+           width: 300px;
+           height:50px;
+           margin-left: 600px;
+           margin-top: 30px;
+           border-radius: 2px;
+         }
+        
+         .time-slider {
+         width: 12px;
+          height:10px;
+         margin: 0 10px;
+         background-color: #081f5c;
+         }
+
+        .category-sectionl{
+          background-color: transparent;
+        }
+        
+      </style>
+   </head>
+   <body>
+     <div class="navbar">
+      <div class="logo">aक्षर</div>
+      <div class="nav-items" style="font-weight: bold;">
+          <span class="fa fa-user"></span><a href="{% url 'account' %}">Hello {{ username }}</a> 
+          <a href="{% url 'index' %}">Homepage</a>
+          <a href="{% url 'donating' %}">For Donors</a>
+          <span class="fa-solid fa-cart-shopping"></span><a href="{% url 'catalog' %}">Catalog</a>
+          <a class="nav-about">About Us</a>
+          <div class="dropdown" style="font-size: 18px;">aक्षर is an initiative aimed at promoting inclusive literacy and sustainable consumption. Focused on the 4th and 12th SDGs, our mission is to bridge the gap between book donors, sellers and recipients, facilitating the transfer of knowledge and fostering a culture of learning. Through our platform, we connect individuals and organizations, empowering them to contribute to a more equitable and literate society.</div>
+      </div>
+  </div>
+  <div class="aqshar-calig">
+      <div class="aQshar" href="#aboutus"> ~ Sell on aक्षर ~ </div> 
+  </div>
+  {% if form.errors %}
+  <div class="alert alert-danger">
+      <strong>Error!</strong> Please correct the following errors:
+      <ul>
+          {% for field, errors in form.errors.items %}
+              {% for error in errors %}
+                  <li>{{ field|title }}: {{ error }}</li>
+              {% endfor %}
+          {% endfor %}
+      </ul>
+  </div>
+{% endif %}
+  <form method="post" action="{% url 'selling' %}">
+   {% csrf_token %}
+   <section class="middle">
+      <div class="content">
+         <div class="form-container">
+            <span class="icon">
+               <ion-icon name="person"></ion-icon>
+            </span>
+            <input type="text" id="seller_name" name="seller_name" class="input-field" placeholder="Enter your name here">
+            <br>
+            <span class="icon">
+               <ion-icon name="mail"></ion-icon>
+            </span>
+            <input type="text" id="email" name="email" class="input-field" placeholder="Enter your Email id">
+            <br>
+            <span class="icon">
+               <ion-icon name="call"></ion-icon>
+            </span>
+            <input type="number" id="mobile" name="mobile" class="input-field" placeholder="Enter your mobile number">
+            <br>
+            <span class="icon">
+               <ion-icon name="book"></ion-icon>
+            </span>
+            <input type="text" id="name" name="name" class="input-field" placeholder="Enter name of book">
+            <br>
+            <span class="icon">
+               <ion-icon name="bookmarks"></ion-icon>
+            </span>
+            <input type="number" id="quantity" name="quantity" class="input-field" placeholder="Quantity of books">
+            <br>
+            <span class="icon">
+               <ion-icon name="book"></ion-icon>
+               </span>
+               <input type="text" id="description" name="description" class="input-field" placeholder="Enter book condition (torn pages, covers etc) ">
+               <br>
+            <div class="contentnew" style="align-items: center; margin-left: 60px; margin-bottom: 10px;">
+                  <h3> <strong> <label for="image"> Upload Image: </label></h3></strong><br>
+                   <input type="file" id="image" name="image" class="form-control-file">
+            </div>
+            <section class="l-mid" style="margin-left: 0px;">
+               <span class="icon">
+                  <ion-icon name="compass"></ion-icon>
+              </span>
+              <input type="text" name="location" id="location-input" class="input-field" placeholder="Enter your Location">
+              <br>
+              <button id="get-location" type="button"  style="margin-left: 0px; box-sizing: border-box; border-radius: 3px; background-color: #081f5c; color: white; padding: 10px 10px; font-size: 17px; margin-top: 10px;">Or Get Location</button>
+            <br>
+            <span class="icon">
+               <ion-icon name="pricetag"></ion-icon>
+            </span>
+            <input type="number" id="price" name="price" class="input-field" placeholder="Set price for your book">
+            <br>
+            <div class="category-section" style="margin-left: 0px; margin-top: 30px;">
+               <h3><strong>Price should be</strong></h3>
+            </div>
+            <div class="diff" style="margin-left: 0px; margin-top: 20px; box-sizing: border-box; padding: 10px 20px;">
+               <select id="negotiable_price" name="negotiable_price" style="background-color: transparent; color: #081f5c; padding: 5px 10px; border-width: 2px;">
+                  <option value="">Select a category</option>
+                  <option value="true">NEGOTIABLE</option>
+                  <option value="false">NON-NEGOTIABLE</option>
+               </select>
+            </div>
+            <br>
+            <div class="contentnew" style="align-items: center; margin-bottom: 50px;">
+               <h3><strong>Book Category</strong> </h3>
+            </div>
+            <section class="c-mid">
+               <div class="category-section"></div>
+               <div class="cat" style="margin-top: -40px;">
+                  <select id="book-category" name="category" style="background-color: transparent; padding: 5px 10px; font-size: 18px; border-width: 2px; margin-left: 0px">
+                     <option value="">Select a category</option>
+                     {% for category in categories %}
+                        <option value="{{ category.pk }}">{{ category.name }}</option>
+                     {% endfor %}
+                  </select>
+               </div>
+            </section>
+            <br>
+
+            <span class="icon"></span>
+            <section class="contentnew">
+               <div class="button">
+                  <button id="sell-button" style="margin-top: 20px;box-sizing: border-box; border-radius: 5%; background-color: #081f5c; padding: 12px 12px;color: #f7f2eb; font-size: 20px; margin-bottom: 100px;">Sell your Books</button>
+               </div>
+            </section>
+         </div>
+      </div>
+   </section>
+</form>
+
+      <div class="chatbot"></div>
+      <footer class="footer">
+         <div class="additional-container">
+             <div class="footer-container about">
+                 <h3 class="footer-titlem">About Us</h3>
+                 <p class="footer-text" style="width:1000px">aक्षर is an initiative aimed at promoting inclusive literacy and sustainable consumption. Focused on the 4th and 12th SDGs, our mission is to bridge the gap between book donors, sellers and recipients, facilitating the transfer of knowledge and fostering a culture of learning. Through our platform, we connect individuals and organizations, empowering them to contribute to a more equitable and literate society.</p>
+             </div>
+         </div>
+         <div class="footer-container menu">
+             <h3 class="footer-title">Menu</h3>
+             <ul class="footer-menu">
+                 <li><a href="{% url 'account' %}" class="footer-link">My Account</a></li>
+                 <li><a href="{% url 'orders' %}" class="footer-link">My Orders</a></li>
+                 <li><a href="{% url 'checkout' %}" class="footer-link">My Cart</a></li>
+                 <li><a href="{% url 'index' %}"  target="blank" class="footer-link">My Rewards</a></li>
+             </ul>
+         </div>
+         <div class="footer-container communities">
+             <h3 class="footer-title">Communities</h3>
+             <ul class="footer-menu">
+                 <li><a href="{% url 'index' %}#donors-section" class="footer-link">Donors</a></li>
+                 <li><a href="#" class="footer-link">Investors</a></li>
+                 <li><a href="{% url 'index' %}#our-organisations" class="footer-link">Organisations</a></li>
+                 <li><a href="{% url 'index' %}#donors-section" class="footer-link">Creators</a></li>
+             </ul>
+         </div>
+         <div class="footer-container contactus">
+           <h3 class="footer-title">Contact Us</h3>
+           <ul class="footer-menu">
+               <li><a href="https://www.instagram.com" target="_blank" class="footer-link">Instagram</a></li>
+               <li><a href="https://www.linkedin.com/feed/" target="_blank" class="footer-link">LinkedIn</a></li>
+               <li><a href="mailto:hehahuho9@gmail.com" target="_blank" class="footer-link">Gmail</a></li>
+               <li><a href="#" target="blank" class="footer-link">+91 123456789</a></li>
+           </ul>
+       </div>
+     </footer>
+     
+      <!-- Scripts -->
+      <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
+      <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
+      <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
+      <script>
+  window.botpressWebChat.init({
+      "composerPlaceholder": "Type somethig to start conversation",
+      "botConversationDescription": "Why fear, when SKAB is here",
+      "botId": "e7f94c9a-d134-4bd7-bd31-781957483ac4",
+      "hostUrl": "https://cdn.botpress.cloud/webchat/v1",
+      "messagingUrl": "https://messaging.botpress.cloud",
+      "clientId": "e7f94c9a-d134-4bd7-bd31-781957483ac4",
+      "webhookId": "15af7127-635a-4188-8c15-14cb4a8cab76",
+      "lazySocket": true,
+      "themeName": "prism",
+      "frontendVersion": "v1",
+      "theme": "prism",
+      "themeColor": "#2563eb"
+  });
+
+
+const locationButton = document.getElementById("get-location");
+locationButton.addEventListener("click", () => {
+    // Check if geolocation is supported
+    if (navigator.geolocation) {
+        // Request the current position
+        navigator.geolocation.getCurrentPosition((position) => {
+            // Get the latitude and longitude
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+
+            // Use Nominatim API for reverse geocoding
+            fetch(`https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`)
+                .then(response => response.json())
+                .then(data => {
+                    // Populate the location input field with the obtained address
+                    document.getElementById('location-input').value = data.display_name;
+                })
+                .catch(error => {
+                    console.error('Error fetching location:', error);
+                });
+        }, (error) => {
+            console.error('Error getting current position:', error);
+        });
+    } else {
+        console.error('Geolocation is not supported by your browser.');
+    }
+});
+
+const bookCategorySelect = document.getElementById("book-category");
+bookCategorySelect.addEventListener("change", (event) => {
+    const selectedCategory = event.target.value;
+    console.log("Selected category:", selectedCategory);
+});
+</script>
+     
+   </body>
+</html>

@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Account | aक्षर</title>
+    {% load static %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Italiana&display=swap" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+    
+    .navbar {
+          text-align: left; 
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background-color: #081f5c;
+          color: #bad6eb;
+          padding: 10px 20px;
+          }
+  
+          .logo {
+          font-size: 30px;
+          font-weight: bold;
+          font-family: 'Cormorant Garamond', serif;
+          }
+
+          .navbar a {
+            color: #bad6eb; /* white text */
+            text-decoration: none;
+            margin:  20px;
+            
+          }
+          .about {
+            width: 100%; 
+          
+            /* 50% width for the About section */
+          }
+          .nav-about{
+              color: #bad6eb;
+          }
+          .dropdown{
+              display: none;
+              position: absolute;
+              margin-top: 30px;
+              /* display: inline-block; */
+          }
+          .nav-about:hover + .dropdown{
+              position: fixed; 
+              top: 0; 
+              right: 0;
+              display: block;
+              width: 600px;
+              background-color: #081f5c;
+              opacity: 0.9;
+              margin-right: 5px;
+              margin-top:70px;
+              border-radius: 2%;
+              padding: 20px;
+              border: 10px solid #081f5c;
+              color: #bad6eb;
+              text-align: justify;
+          }
+
+    * {
+      margin: 0;
+      padding: 0;
+      font-weight: bold;
+      box-sizing: border-box;
+    }
+    
+    body {
+      background-image: linear-gradient(to right, #f7f2eb , #bad6eb);
+      font-family: "Italiana", sans-serif;
+      font-weight: 550;
+      color: rgba(0,0,0,0.6);
+    }
+  
+  
+    .profile-page {
+      display: flex;
+      min-height: 900px;
+      padding-top: 0rem;
+      border-radius: 10px 10px 10px 10px ;
+    }
+    @media (max-width: 990px) {
+      .profile-page {
+        padding-top: 0;
+      }
+    }
+    .profile-page .content {
+      height: 600px;
+      display: flex;
+      flex-direction: column;
+      max-width: 800px;
+      width: 100%;
+      position: relative;
+      z-index: 2;
+      margin: auto;
+      padding: 5rem;
+      background:#bad6eb;
+      border-radius: 2rem;
+      box-shadow: 0 15px 35px rgba(50,50,93,0.1), 0 5px 15px rgba(0,0,0,0.07);
+    }
+    @media (max-width: 990px) {
+      .profile-page .content {
+        max-width: 420px;
+        padding: 0;
+        border-radius: 0;
+      }
+    }
+    .profile-page .content__cover {
+      position: relative;
+      background: linear-gradient(to right, #f7f2eb , #bad6eb);
+    }
+    .theme-blue .profile-page .content__cover {
+      background: linear-gradient(150deg, #0098f0 20%, #00f2c3 100%);
+    }
+    
+    .profile-page .content__avatar {
+      width: 12rem;
+      height: 12rem;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      z-index: 2;
+      transform: translate(-50%, 50%);
+      background: url("user.png") ;
+      background-size: cover;
+      border-radius: 50%;
+      box-shadow: 5px 5px 3px lightblue;
+    }
+    .profile-page .content__avatar::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      border-radius: 50%;
+    }
+    .profile-page .content__actions {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.2rem;
+    }
+    @media (max-width: 990px) {
+      .profile-page .content__actions {
+        padding: 0.8rem 2rem;
+      }
+    }
+    .profile-page .content__actions a {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: center;
+      height: 3rem;
+      padding: 0.2rem 1rem;
+      border-radius: 2rem;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    @media (max-width: 990px) {
+      .profile-page .content__actions a {
+        padding: 0.5rem;
+      }
+    }
+    @media (max-width: 990px) {
+      .profile-page .content__actions a span {
+        display: none;
+      }
+    }
+    .profile-page .content__actions a svg {
+      width: 2rem;
+      margin-right: 0.4rem;
+    }
+    @media (max-width: 990px) {
+      .profile-page .content__actions a svg {
+        margin: 0;
+      }
+    }
+    .profile-page .content__actions a svg path:last-child {
+      opacity: 0.5;
+    }
+    .profile-page .content__actions a:first-child {
+      color: #081f5c;
+    }
+    .profile-page .content__actions a:last-child {
+      color: #081f5c;
+    }
+    .profile-page .content__actions a:hover:first-child {
+      background: #1d8cf8;
+      color: #fff;
+    }
+    .theme-blue .profile-page .content__actions a:hover:first-child {
+      background: #0098f0;
+    }
+    .profile-page .content__actions a:hover:last-child {
+      background: #1d8cf8;
+      color: #fff;
+    }
+    .profile-page .content__title {
+      margin-top: 4.5rem;
+      text-align: center;
+      order: 1;
+    }
+    @media (max-width: 990px) {
+      .profile-page .content__title {
+        margin-top: 1.5rem;
+      }
+    }
+    .profile-page .content__title h1 {
+      margin-bottom: 0.1rem;
+      font-size: 2.4rem;
+    }
+    @media (max-width: 990px) {
+      .profile-page .content__title h1 {
+        font-size: 1.8rem;
+      }
+    }
+    .profile-page .content__title span {
+      font-size: 1rem;
+    }
+    @media (max-width: 990px) {
+      .profile-page .content__title span {
+        font-size: 0.9rem;
+      }
+    }
+    .profile-page .content__description {
+      margin-top: 2.5rem;
+      text-align: center;
+      order: 2;
+    }
+    @media (max-width: 990px) {
+      .profile-page .content__description {
+        margin-top: 1.5rem;
+        order: 3;
+      }
+    }
+    .profile-page .content__description p {
+      margin-bottom: 0.2rem;
+      font-size: 1.2rem;
+    }
+    @media (max-width: 990px) {
+      .profile-page .content__description p {
+        font-size: 1rem;
+      }
+    }
+  
+    .profile-page .content__list {
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+      list-style-type: none;
+      order: 3;
+    }
+    @media (max-width: 990px) {
+      .profile-page .content__list {
+        margin-top: 1.5rem;
+        order: 2;
+      }
+    }
+    .profile-page .content__list li {
+      padding: 0 1.5rem;
+      text-align: center;
+      font-size: 1rem;
+    }
+    @media (max-width: 990px) {
+      .profile-page .content__list li {
+        font-size: 0.8rem;
+      }
+    }
+    .profile-page .content__list li span {
+      display: block;
+      margin-bottom: 0.1rem;
+      font-weight: bold;
+      font-size: 1.6rem;
+    }
+    @media (max-width: 990px) {
+      .profile-page .content__list li span {
+        font-size: 1.2rem;
+      }
+    }
+    .profile-page .content__button {
+      margin: 3rem 0 2rem;
+      text-align: center;
+      order: 4;
+    }
+    @media (max-width: 990px) {
+      .profile-page .content__button {
+        margin: 1.5rem 0 2.2rem;
+      }
+    }
+    .profile-page .content__button .button {
+      display: inline-block;
+      padding: 1.2rem 1.8rem;
+      text-align: center;
+      text-decoration: none;
+      background:#081f5c;
+      border-radius: 2rem;
+      box-shadow: 0 4px 6px rgba(50,50,93,0.11), 0 1px 3px rgba(0,0,0,0.08);
+      font-size: 1rem;
+      color: #fff;
+      cursor: pointer;
+    }
+    .profile-page .content__button .button:hover {
+      color: #bad6eb;
+    }
+    @media (max-width: 990px) {
+      .profile-page .content__button .button {
+        padding: 1rem 1.4rem;
+        font-size: 0.9rem;
+      }
+    }
+    
+    .oneline{
+      display: flex;
+      margin: 20px;
+      justify-content: space-between;
+      position: absolute;
+      padding-left: 8%;
+      padding-right: 8%;
+      padding-top: 5%;
+      left: 0;
+      right:  0;
+      bottom:   0;
+      top: 400px;
+    }
+
+  
+    .theme-switcher-button {
+      position: fixed;
+      top: calc(50% - 3.6rem);
+      right: 0;
+      z-index: 2;
+      padding: 1rem;
+      background: rgba(0,0,0,0.6);
+      border-top-left-radius: 1rem;
+      border-bottom-left-radius: 1rem;
+      font-size: inherit;
+      color: #bad6eb;
+      cursor: pointer;
+    }
+    .theme-switcher-button svg {
+      width: 1.1rem;
+    }
+    .theme-switcher-wrapper {
+      width: 200px;
+      position: fixed;
+      top: calc(50% - 5rem);
+      right: 5rem;
+      z-index: 2;
+      padding: 1.5rem 0;
+      background: linear-gradient(#222a42, #1d253b);
+      box-shadow: 0 10px 50px 0 rgba(0,0,0,0.2);
+      border-radius: 0.25rem;
+      opacity: 0;
+      text-align: center;
+      font-size: 1rem;
+      color: inherit;
+      visibility: hidden;
+      transform: translateY(-15%) translateZ(0);
+      transform-origin: 0 0;
+      transition: transform 0.15s cubic-bezier(0.43, 0.195, 0.02, 1);
+    }
+    .footer {
+  margin-top: 10px;
+  background-color: #bad6eb; /* off-white background */
+  margin: 10px 0; /* Adjusted margin */
+  border-top: 5px solid #081f5c;
+  padding: 10px 0; /* Adjusted padding */
+  text-align: center;
+  display: flex;
+  align-items: left;
+}
+
+  
+          .additional-container {
+          width: 1200px;
+          text-align:center;
+          margin: 0 auto; /* Center-align the container */
+          /* background-color: #DECBA4;  */
+          padding: 10px; /* Add padding for spacing */
+          margin-right: 0px;
+          }
+          
+          .footer-container {
+          /* border: 5px solid #000000; */
+          text-align: left; /* Center-align content */
+          margin-right: 20px;
+          width: 80%;
+          }
+          .about-sections {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+          }
+
+          .contactus  {
+            margin-top: 10px;
+          display: flex;
+          margin-left: 10px; 
+          margin-right: 40px;
+          /* Shift to the right */
+          width: 250px;
+          font-size: 20px;
+          flex-direction: column;
+          align-items: left;
+          }
+
+          .communities {
+            margin-top: 10px;
+          display: flex;
+          margin-left: 20px; 
+          /* Shift to the right */
+          width: 250px;
+          font-size: 20px;
+          flex-direction: column;
+          align-items: left;
+          }
+          .menu{
+            margin-top: 10px;
+            display: flex;
+          margin-left: 0px; 
+          width: 250px;
+          font-size: 20px;
+          flex-direction: column;
+          align-items: left;
+          }
+          .footer-title {
+          margin-left: 20px;
+          border-radius: 1%;
+          border-color: #bad6eb;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 25px;
+            color: #081f5c; 
+          }
+          .footer-titlem {
+          /* margin-left: 20px; */
+          border-radius: 1%;
+          border-color: #bad6eb;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 25px;
+            color: #081f5c; 
+          
+          }
+          .footer-text {
+            /* color: #ede7e7; */
+            text-align: left;
+            justify-content: space-between;
+            font-size: 19px;
+            color: #081f5c;
+          }
+          .footer-menu {
+            list-style-type: none;
+            padding: 0px;
+            margin-left: 20px;
+          }
+          .footer-link {
+            text-decoration: none;
+            color: #081f5c;
+          }
+          .footer-link:hover {
+            color: #7096d1;
+          }
+          .aqshar-calig{
+            width: 1105px;
+            height: 20px;
+           margin: auto;
+           font-family: 'cormorant garamond', serif;
+            text-align: center;
+            color: #444ea8;
+            margin-bottom: 0px;
+            margin-top: 100px;
+            width: 50%;
+          }
+          
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account | aक्षर</title>
+</head>
+<body>
+
+  <div class="navbar">
+    <div class="logo">aक्षर</div>
+    <div class="nav-items">
+      <span class="fa fa-user"></span><a href="{% url 'account' %}">Hello {{ username }}</a> 
+      <a href="{% url 'selling' %}">For Sellers</a>
+      <a href="{% url 'donating' %}">For Donors</a>
+      <!-- <a href="#chatbot-container">Chat with Us</a> -->
+      <a href="{% url 'catalog'%}" target="blank">Catalog</a>
+      <a class="nav-about">About Us</a>
+        <div class="dropdown">aक्षर is an initiative aimed at promoting inclusive literacy and sustainable consumption. Focused on the 4th and 12th SDGs, our mission is to bridge the gap between book donors, sellers and recipients, facilitating the transfer of knowledge and fostering a culture of learning. Through our platform, we connect individuals and organizations, empowering them to contribute to a more equitable and literate society.</div>
+</div>
+</div>
+<div id="chatbot-container">
+<div class="chatbot"></div>
+
+<div class="aqshar-calig">
+  <h1 href="#aboutus">  ~ {{ username }}'s account on aक्षर ~ </h1> 
+ </div>
+
+
+    <div class="profile-page" >
+        <div class="content">
+          <div class="content__cover">
+            <div class="content__avatar">
+              <img src="{% static 'images/userlogo.jpeg' %}" style="width: 12rem;height: 12rem;position: absolute;bottom: 0;left: 50%;z-index: 2;transform: translate(-50%, 50%);background-size: cover;border-radius: 50%;box-shadow: 5px 5px 3px lightblue;">
+            </div>
+            
+          </div>
+          <div class="content__actions"><a href="{% url 'login' %}">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+                <path fill="currentColor" d="M192 256A112 112 0 1 0 80 144a111.94 111.94 0 0 0 112 112zm76.8 32h-8.3a157.53 157.53 0 0 1-68.5 16c-24.6 0-47.6-6-68.5-16h-8.3A115.23 115.23 0 0 0 0 403.2V432a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48v-28.8A115.23 115.23 0 0 0 268.8 288z"></path>
+                <path fill="currentColor" d="M480 256a96 96 0 1 0-96-96 96 96 0 0 0 96 96zm48 32h-3.8c-13.9 4.8-28.6 8-44.2 8s-30.3-3.2-44.2-8H432c-20.4 0-39.2 5.9-55.7 15.4 24.4 26.3 39.7 61.2 39.7 99.8v38.4c0 2.2-.5 4.3-.6 6.4H592a48 48 0 0 0 48-48 111.94 111.94 0 0 0-112-112z"></path>
+              </svg><span>Switch Account</span></a>
+              <a href="{% url 'index' %}">
+               <path fill="currentColor" d="M208 352c-41 0-79.1-9.3-111.3-25-21.8 12.7-52.1 25-88.7 25a7.83 7.83 0 0 1-7.3-4.8 8 8 0 0 1 1.5-8.7c.3-.3 22.4-24.3 35.8-54.5-23.9-26.1-38-57.7-38-92C0 103.6 93.1 32 208 32s208 71.6 208 160-93.1 160-208 160z"></path>
+                <path fill="currentColor" d="M576 320c0 34.3-14.1 66-38 92 13.4 30.3 35.5 54.2 35.8 54.5a8 8 0 0 1 1.5 8.7 7.88 7.88 0 0 1-7.3 4.8c-36.6 0-66.9-12.3-88.7-25-32.2 15.8-70.3 25-111.3 25-86.2 0-160.2-40.4-191.7-97.9A299.82 299.82 0 0 0 208 384c132.3 0 240-86.1 240-192a148.61 148.61 0 0 0-1.3-20.1C522.5 195.8 576 253.1 576 320z"></path>
+              </svg><span>Back to Homepage</span></a></div>
+          <div class="content__title">
+            <h1>USER</h1><br><span>{{ username }}</span><br><span>Delhi</span>
+          </div>
+          <div class="content__description">
+            <p>Credit coins : 10 </p>
+          </div>
+          <ul class="content__list">
+            <li><span>5</span>Donations</li>
+            <li><span>2</span>Sales</li>
+            <li><span>1</span>Reviews</li>
+          </ul>
+        <div class="oneline">
+          <div class="content__button" style="margin-top: 50px"><a class="button" href="{% url 'orders' %}">
+              <div class="button__border"></div>
+              <div class="button__bg"></div>
+              <p class="button__text" style="height: 17px;">My Orders</p>
+            </a></div>
+            <div class="content__button" style="margin-top: 50px"><a class="button" href="{% url 'checkout' %}">
+                <div class="button__border"></div>
+                <div class="button__bg"></div>
+                <p class="button__text" style="height: 17px;">Go to cart</p>
+              </a></div>
+              <div class="content__button" style="margin-top: 50px"><a class="button" href="{% url 'catalog' %}">
+                <div class="button__border"></div>
+                <div class="button__bg"></div>
+                <p class="button__text" style="height: 17px;">Catalog</p>
+              </a></div>
+        </div>
+        <div class="donatedbooks">
+        </div>
+            
+        </div>
+        <div class="theme-switcher-button" id="theme-switcher-button">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+            <path fill="currentColor" d="M352 0H32C14.33 0 0 14.33 0 32v224h384V32c0-17.67-14.33-32-32-32zM0 320c0 35.35 28.66 64 64 64h64v64c0 35.35 28.66 64 64 64s64-28.65 64-64v-64h64c35.34 0 64-28.65 64-64v-32H0v32zm192 104c13.25 0 24 10.74 24 24 0 13.25-10.75 24-24 24s-24-10.75-24-24c0-13.26 10.75-24 24-24z"></path>
+          </svg>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <div class="additional-container">
+            <div class="footer-container about">
+                <h3 class="footer-titlem">About Us</h3>
+                <p class="footer-text" style="width:1000px">aक्षर is an initiative aimed at promoting inclusive literacy and sustainable consumption. Focused on the 4th and 12th SDGs, our mission is to bridge the gap between book donors, sellers and recipients, facilitating the transfer of knowledge and fostering a culture of learning. Through our platform, we connect individuals and organizations, empowering them to contribute to a more equitable and literate society.</p>
+            </div>
+        </div>
+        <div class="footer-container menu">
+            <h3 class="footer-title">Menu</h3>
+            <ul class="footer-menu">
+                <li><a href="#chatbot-conatiner" class="footer-link">Chat with Us</a></li>
+                <li><a href="{% url 'checkout' %}"  target="blank" class="footer-link">My Cart</a></li>
+                <li><a href="{% url 'orders' %}" class="footer-link">My Orders</a></li>
+                <li><a href="#" class="footer-link">My Rewards</a></li>
+            </ul>
+        </div>
+        <div class="footer-container communities">
+            <h3 class="footer-title">Communities</h3>
+            <ul class="footer-menu">
+                <li><a href="#donors-section" class="footer-link">Donors</a></li>
+                <li><a href="#our-organisations" class="footer-link">Investors</a></li>
+                <li><a href="#our-organisations" class="footer-link">Organisations</a></li>
+                <li><a href="#donors-section" class="footer-link">Creators</a></li>
+            </ul>
+        </div>
+        <div class="footer-container contactus">
+          <h3 class="footer-title">Contact Us</h3>
+          <ul class="footer-menu">
+              <li><a href="https://www.instagram.com" target="_blank" class="footer-link">Instagram</a></li>
+              <li><a href="https://www.linkedin.com/feed/" target="_blank" class="footer-link">LinkedIn</a></li>
+              <li><a href="mailto:hehahuho9@gmail.com" target="_blank" class="footer-link">Gmail</a></li>
+              <li><a href="#" target="blank" class="footer-link">+91 123456789</a></li>
+          </ul>
+      </div>
+    </footer>
+    <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
+    <script>
+      window.botpressWebChat.init({
+          "composerPlaceholder": "Type somethig to start conversation",
+          "botConversationDescription": "Why fear, when SKAB is here",
+          "botId": "e7f94c9a-d134-4bd7-bd31-781957483ac4",
+          "hostUrl": "https://cdn.botpress.cloud/webchat/v1",
+          "messagingUrl": "https://messaging.botpress.cloud",
+          "clientId": "e7f94c9a-d134-4bd7-bd31-781957483ac4",
+          "webhookId": "15af7127-635a-4188-8c15-14cb4a8cab76",
+          "lazySocket": true,
+          "themeName": "prism",
+          "frontendVersion": "v1",
+          "theme": "prism",
+          "themeColor": "#2563eb"
+      });
+    </script>
+</body>
+</html>

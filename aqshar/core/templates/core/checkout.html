@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout | aक्षर </title>
+    {%load static%}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Italiana&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="checkout-page-master/devchallenges.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <style>
+    :root {
+    --title-gray: #000202;
+    --gray-1: #333333;
+    --gray-2: #4F4F4F;
+    --gray-3: #828282;
+    --gray-5: #bad6eb;
+    --gray-6: #081f5c;
+    --gray-footer: #BDBDBD;
+    --orange-1: #F2994A;
+    --italiana: 'Italiana', sans-serif;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    /* font-family: var(--montserrat); */
+    font-family: "italiana", sans-serif;
+
+}
+
+#main {
+    max-width: 1000px;
+    margin: 0 auto;
+    font-family: "italiana", sans-serif;
+ 
+}
+
+
+h1 {
+    font-weight: 600;
+    color: var(--title-gray);
+    font-size: 1.5rem;
+    margin: 1.8rem 0 1.25rem 1.15rem;
+    font-family: "italiana", sans-serif;
+}
+
+
+.ware {
+    background-color: #081f5c;
+    font-family: "italiana", sans-serif;
+    border-radius: 10px;
+    margin: 0 .8rem 1rem;
+    padding: 1.75rem 1.5rem .4rem;
+    overflow: auto;
+}
+
+.item__figure {
+    margin: 0 0 2rem;
+    display: grid;
+    grid-template-rows: 22% 22% 56%;
+    grid-template-columns: 42% 58%;
+    font-family: "italiana", sans-serif;
+    column-gap: 1rem;
+}
+
+.item__figure--second {
+    margin-bottom: 5rem;
+
+}
+
+.item__img {
+    border-radius: 10px;
+    min-width: 110px;
+    width: 200px;
+    height: 100%;
+    max-width: 80%;
+    max-height: 80%;
+    justify-self: right;
+    align-self: right;
+    grid-row: 1 / span 4;
+    grid-column: 1 / span 1;
+}
+
+.item__figure__figcaption {
+    font-weight: 600;
+    color: #FFFFFF;
+    font-size: 19px;
+}
+
+.item__figure__price {
+    margin: 0;
+    align-self: flex-start;
+    display: flex;
+    align-items: center;
+    
+}
+
+.figure__price--off {
+    color: #bad6eb;
+    font-size: .875rem;
+    margin-right: .8rem;
+}
+
+.figure__price--crossed {
+    font-weight: 600;
+    font-size: .625rem;
+    color: #bad6eb;
+    text-decoration: line-through;
+}
+
+.item__cont__btns {
+    min-width: min-content;
+    width: 7.25rem;
+    text-align: right;
+    justify-self: flex-start;
+    align-self: flex-end;
+    display: flex;
+    justify-content: space-evenly;
+    border: 1px solid #FFFFFF;
+    border-radius: 10px;
+    padding: .7rem .4rem;
+}
+
+.item__btn {
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color:#fff;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item__btn--minus--active {
+    background-color: #bad6eb;
+}
+
+.item__btn--minus--active .material-icons {
+    color: #bad6eb;
+}
+
+.item__btn--plus--active {
+    background-color: #bad6eb;
+}
+
+.item__btn--plus--active .material-icons {
+    color: #081f5c;
+}
+
+.material-icons {
+    color: #081f5c;
+}
+
+.ware__hide-label {
+    position: absolute;
+    left: -9999px;
+}
+
+.ware__input {
+    pointer-events: none;
+    text-align: center;
+    width: 50%;
+    border: none;
+    background-color: transparent;
+    font-family: var(--montserrat);
+    font-size: 1rem;
+    color: #fff;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.global__price {
+    border-top: 1px solid #FFFFFF;
+    padding-top: .85rem;
+    margin: 0 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: 19px;
+    color:#fff
+}
+
+.global__price--shipping {
+    padding-top: .6rem;
+    margin-bottom: .65rem;
+}
+
+.form {
+    
+    margin: 3.25rem 0 6.1rem;
+    padding: .5rem;
+    font-size: 24px;
+}
+
+.fieldset {
+    border: none;
+    padding: 0;
+}
+
+.fieldset--contact {
+    margin-bottom: 2.5rem;
+}
+
+.legend {
+    font-size: 24px;
+    margin-bottom: .5rem;
+}
+
+.label {
+    font-size: medium;
+    display: inline-block;
+    margin-bottom: .3rem;
+    
+}
+
+.field {
+    cursor: text;
+    margin: 0 0 .75rem;
+    display: flex;
+    align-items: center;
+    border: 1px solid ;
+    border-radius: 12px;
+    padding: .4rem;
+    
+}
+
+.field--text {
+    padding: .6rem;
+}
+
+.field__saveInfo {
+    border: none;
+    cursor: initial;
+    margin-bottom: .8rem;
+    padding-left: 0;
+}
+
+.label__saveInfo {
+    margin: 0;
+}
+
+.saveInfo--pointer {
+    cursor: pointer;
+}
+
+.content-field__shipping--country {
+    position: relative;
+}
+
+.field__shipping--country {
+    cursor: initial;
+    padding: .7rem;
+}
+
+.input {
+    border: none;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    color: transparent;
+    font-family: var(--montserrat);
+    font-weight: 600;
+    font-size: .75rem;
+    background-color: transparent;
+}
+
+.input::placeholder {
+    color: #081f5c;
+}
+
+.select__shipping {
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.select__shipping--default {
+    color: #081f5c;
+}
+
+.select__shipping::-ms-expand {
+    display: none;
+}
+
+.icon--select {
+    cursor: default;
+    position: absolute;
+    right: .6rem;
+    background-color:#bad6eb;
+    color: var(--gray-3);
+    width: 18px;
+    height: 18px;
+    border-radius: 5px;
+}
+
+.material-icons.icon--select {
+    font-size: 1.15rem;
+}
+
+.option--default {
+    color: var(--gray-3);
+}
+
+.material-icons.form__icons {
+    margin-right: .5rem;
+    font-size: 20.8px;
+}
+
+.container-address-country {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1.3rem;
+}
+
+.field__shipping--country, .field__shipping--zipCode {
+    margin-bottom: .5rem;
+}
+
+.label__shipping--country, .label__shipping--zipCode {
+    display: inline-block;
+}
+
+input[type=checkbox] {
+    margin-right: .5rem;
+}
+
+.container__form__btn { text-align: right; }
+
+.form__btn {
+    cursor: pointer;
+    font-family: var(--montserrat);
+    color: #FFFFFF;
+    font-weight: 600;
+    background-color: #081f5c;
+    outline: none;
+    border: 2px solid #081f5c;
+    border-radius: 10px;
+    padding: 1rem 2.5rem;
+}
+
+.form__btn:active {
+    background-color: #FFFFFF;
+    color: #081f5c;
+    border: 2px solid #081f5c;
+}
+@media only screen and (max-width: 300px) {
+    .container-address-country {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 500px) {
+    .item__figure__figcaption {
+        font-size: .825rem;
+    }
+
+    .figure__price--off {
+        font-size: .95rem;
+    }
+
+    .figure__price--crossed {
+        font-size: .725rem;
+    }
+
+    .label {
+        font-size: .7rem;
+    }
+
+    .item__figure {
+        grid-template-rows: 18% 18% 64%;
+        grid-template-columns: 42% 58%;
+        column-gap: 1.5rem;
+    }
+}
+
+@media only screen and (min-width: 538px) {
+    .ware {
+        margin: 0 auto 1rem;
+        max-width: 450px;
+    }
+
+    .form {
+        margin: 3.25rem auto 6.1rem;
+        max-width: 510px;
+    }
+}
+
+@media only screen and (min-width: 760px) {
+    #main {
+        padding: 0 1rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(2, auto);
+        column-gap: 2.5rem;
+        justify-items: center;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+        margin: 2.5rem 0 2.5rem 1.15rem;
+        grid-column: 1 / span 2;
+        grid-row: 1 / span 1;
+        justify-self: flex-start;
+    }
+
+    .form {
+        grid-column: 1 / span 1;
+        grid-row: 2 / span 1;
+        margin-top: 0;
+        padding: 0;
+    }
+
+    .ware {
+        align-self: flex-start;
+    }
+
+    @media only screen and (min-height: 1024px) {
+        .footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    }
+}
+
+/* DESKTOPS */
+@media only screen and (min-width: 990px) {
+    #main {
+        margin-bottom: 9rem;
+    }
+
+    h1 {
+        margin-left: 0;
+    }
+
+    .item__figure__figcaption {
+        font-size: .96rem;
+    }
+
+    .item__cont__btns {
+        width: 7.7rem;
+    }
+
+    .global__price {
+        font-size: .925rem;
+    }
+
+    .form {
+        margin-bottom: 0;
+    }
+
+    .fieldset {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .fieldset--contact {
+        margin-bottom: 2.75rem;
+    }
+
+    .legend {
+        font-size: 1.05rem;
+        margin-bottom: .9rem;
+    }
+
+    .field--text {
+        margin-bottom: 1.05rem;
+        padding: .95rem .7rem;
+    }
+
+    .field__shipping--country {
+        padding: .95rem .7rem;
+    }
+
+    .field__saveInfo {
+        margin-bottom: 1.7rem;
+    }
+
+    .label {
+        font-size: .8rem;
+        margin-bottom: .4rem;
+    }
+
+    .label__saveInfo {
+        margin-bottom: 0;
+    }
+
+    .input {
+        font-size: .8rem;
+    }
+
+    .saveInfo--pointer {
+        margin-left: 0;
+    }
+}
+body{
+    background-image: linear-gradient(to right, #f7f2eb , #bad6eb);
+    font-weight: 550;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+text-align: left; 
+display: flex;
+justify-content: space-between;
+align-items: center;
+background-color: #081f5c;
+color: #bad6eb;
+padding: 10px 20px;
+}
+
+.logo {
+font-size: 30px;
+font-weight: bold;
+font-family: 'Cormorant Garamond', serif;
+}
+
+.navbar a {
+  color: #bad6eb; /* white text */
+  text-decoration: none;
+  margin:  20px;
+  
+}
+.about {
+  width: 100%; 
+
+  /* 50% width for the About section */
+}
+.nav-about{
+    color: #bad6eb;
+}
+.dropdown{
+    display: none;
+    position: absolute;
+    margin-top: 30px;
+    /* display: inline-block; */
+}
+.nav-about:hover + .dropdown{
+    display: block;
+    background-color: #081f5c;
+    opacity: 0.9;
+    margin-top: 80px;
+    margin-right: 10px;
+    width: 600px; 
+    position: fixed; 
+    top: 0;
+    right: 0; 
+    border-radius: 2%;
+    padding: 20px;
+    border: 10px solid #081f5c;
+    color: #bad6eb;
+    text-align: justify;
+}
+
+
+.cart-page{
+    margin: 120px ; 
+}
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+.cart-info{
+    display:flex;
+    flex-wrap:wrap;
+}
+th{
+    text-align:left;
+    padding:10px;
+    color:#fff;
+    background: #081f5c;
+    font-weight:normal;
+    font-size:19px;
+}
+td{
+    padding:10px 10px;
+    font-size:19px;
+    
+}
+td input{
+    width:40px;
+    height: 30px;
+    padding: 5px;
+}
+td a{
+    color:#081f5c;
+}
+td img{
+    width:90px;
+    height: 90px;
+    margin-right:10px;
+}
+.total-price{
+    display:flex;
+    justify-content:flex-end;
+}
+.total-price table{
+    border-top:3px solid #081f5c;
+    width:100%;
+    max-width:350px;
+}
+td:last-child{
+    text-align:right;
+}
+th:last-child{
+    text-align:right;
+}
+.footer {
+          margin-top: 10px;
+          background-color: #bad6eb; /* off-white background */
+          margin: auto;
+          margin-left: 0px;
+          margin-bottom: 0px;
+          border-top: 5px solid #081f5c;
+          /* border: 5px solid #8f9779; */
+          padding: 10px;
+          text-align: center;
+          display: flex;
+          font-weight:bold;
+          /* justify-content: space-between; */
+          align-items: left;
+          }
+  
+          .additional-container {
+          width: 1200px;
+          text-align:center;
+          margin: 0 auto; /* Center-align the container */
+          /* background-color: #DECBA4;  */
+          padding: 10px; /* Add padding for spacing */
+          margin-right: 0px;
+          }
+          
+          .footer-container {
+          /* border: 5px solid #000000; */
+          text-align: left; /* Center-align content */
+          margin-right: 20px;
+          width: 80%;
+          }
+          .about-sections {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+          }
+
+          .contactus  {
+            margin-top: 10px;
+          display: flex;
+          margin-left: 10px; 
+          margin-right: 40px;
+          /* Shift to the right */
+          width: 250px;
+          font-size: 20px;
+          flex-direction: column;
+          align-items: left;
+          }
+
+          .communities {
+            margin-top: 10px;
+          display: flex;
+          margin-left: 20px; 
+          /* Shift to the right */
+          width: 250px;
+          font-size: 20px;
+          flex-direction: column;
+          align-items: left;
+          }
+          .menu{
+            margin-top: 10px;
+            display: flex;
+          margin-left: 0px; 
+          width: 250px;
+          font-size: 20px;
+          flex-direction: column;
+          align-items: left;
+          }
+          .footer-title {
+          margin-left: 20px;
+          border-radius: 1%;
+          border-color: #bad6eb;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 25px;
+            color: #081f5c; 
+          }
+          .footer-titlem {
+          /* margin-left: 20px; */
+          border-radius: 1%;
+          border-color: #bad6eb;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 25px;
+            color: #081f5c; 
+          
+          }
+          .footer-text {
+            /* color: #ede7e7; */
+            text-align: left;
+            justify-content: space-between;
+            font-size: 21px;
+            color: #081f5c;
+          }
+          .footer-menu {
+            list-style-type: none;
+            padding: 0px;
+            margin-left: 20px;
+          }
+          .footer-link {
+            text-decoration: none;
+            color: #081f5c;
+          }
+          .footer-link:hover {
+            color: #7096d1;
+          }
+
+.checkout-button {
+    position: absolute;
+    bottom:px; 
+    right: 90px; 
+}
+
+.checkout-button button {
+    background-color:  #081f5c; 
+    color: #fff; 
+    padding: 10px 20px; 
+    border: none;
+    border-radius: 5px; 
+    cursor: pointer; 
+}
+
+.checkout-button button:hover {
+    background-color:  #081f5c; 
+}
+.aqshar-calig {
+    width: 1105px;
+    height: 20px;
+   margin: auto;
+   font-size: 40px;
+   font-family: "cormorant garamond", sans-serif;
+    text-align: center;
+    color: #444ea8;
+    margin-bottom: 70px;
+    margin-top: 80px;
+    width: 50%;
+  }
+
+  .content {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+
+
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">aक्षर</div>
+            <div class="nav-items" style="font-weight: bold;">
+            <span class="fa fa-user"></span><a href="{% url 'account' %}">Hello {{ username }}</a> 
+            <a href="{% url 'index' %}">Homepage</a>
+            <a href="{% url 'selling' %}">For Sellers</a>
+            <a href="{% url 'donating' %}">For Donors</a>
+              <a class="nav-about">About Us</a>
+                <div class="dropdown" style="font-size: 18px;">aक्षर is an initiative aimed at promoting inclusive literacy and sustainable consumption. Focused on the 4th and 12th SDGs, our mission is to bridge the gap between book donors, sellers and recipients, facilitating the transfer of knowledge and fostering a culture of learning. Through our platform, we connect individuals and organizations, empowering them to contribute to a more equitable and literate society.</div>
+            </div>
+    </div>
+      <div class="aqshar-calig">
+       <div class="aQshar" href="#aboutus">  ~ {{ username }}'s cart on aक्षर ~ </div> 
+      </div>
+
+    <div class="content">
+    <main id="main">
+        <h1></h1>
+        <aside class="ware">
+            <div class="ware__item">
+                <figure class="item__figure" style="margin-bottom: 75px;">
+                    <img class="item__img" src="https://ncert.nic.in/textbook/pdf/leph2cc.jpg" alt="Class 12 Ncert" />
+                    <figcaption class="item__figure__figcaption">Class 12 NCERT</figcaption>
+                    <p class="item__figure__price"><span class="figure__price--off">₹40.00</span><p class="item__figure__price"><span class="figure__price--off">Sold by Aditi, Dwarka</span>
+                    
+                    <div class="item__cont__btns">
+                        <button class="item__btn item__btn--minus" type="button"><i class="material-icons">remove</i></button>
+                        <input type="number" name="backbag-qty" id="backbag-qty" class="ware__input ware__input--item-1" min="1" value="1" />
+                        <button class="item__btn item__btn--plus" type="button"><i class="material-icons">add</i></button>
+                    </div>
+                </figure>
+            </div>
+            <div class="ware__item">
+                <figure class="item__figure item__figure--second">
+                    <img class="item__img" src="https://cdn.britannica.com/21/182021-050-666DB6B1/book-cover-To-Kill-a-Mockingbird-many-1961.jpg" alt="How to Kill A Mockingbird" />
+                    <figcaption class="item__figure__figcaption">How to Kill A Mockingbird</figcaption>
+                    <p class="item__figure__price"><span class="figure__price--off">₹0.00</span> <p class="item__figure__price"><span class="figure__price--off">Donated by Sanskriti, Dwarka</span>
+                    <div class="item__cont__btns">
+                        <button class="item__btn item__btn--minus" type="button"><i class="material-icons">remove</i></button>
+                        <input type="number" name="shoes-qty" id="shoes-qty" class="ware__input ware__input--item-2" min="1" value="1" />
+                        <button class="item__btn item__btn--plus" type="button"><i class="material-icons">add</i></button>
+                    </div>
+                </figure>
+            </div>
+            <p class="global__price global__price--shipping"><span>Shipping</span> <span>₹10</span></p>
+            <p class="global__price"><span>Total</span> <span class="quantity__total">₹50.00</span></p>
+        </aside>
+        
+        <form class="form">
+    <!-- Contact info -->
+    <fieldset class="fieldset fieldset--contact">
+        <legend class="legend">Contact Information</legend>
+        <label class="label" for="e-mail">Email ID</label>
+        <p class="field field--text">
+            <i class="material-icons form__icons">email</i>
+            <input type="email" name="e-mail" id="e-mail" class="input input--text" required>
+        </p>
+        <label class="label" for="phone-num">Phone Number</label>
+        <p class="field field--text">
+            <i class="material-icons form__icons">phone</i>
+            <input type="tel" name="phone-number" id="phone-num" class="input input--text" required>
+        </p>
+    </fieldset>
+
+    <!-- Delivery Address -->
+    <fieldset class="fieldset">
+        <legend class="legend">Delivery Address</legend>
+        <label class="label" for="f-name">Full Name</label>
+        <p class="field field--text">
+            <i class="material-icons form__icons">account_circle</i>
+            <input type="text" name="full-name" id="f-name" class="input input--text" required>
+        </p>
+
+        <label class="label" for="address">Address</label>
+        <p class="field field--text">
+            <i class="material-icons form__icons">home</i>
+            <input type="text" name="address" id="address" class="input input--text" required>
+        </p>
+
+        <label class="label" for="city">City</label>
+        <p class="field field--text">
+            <i class="material-icons form__icons">location_city</i>
+            <input type="text" name="loc-city" id="city" class="input input--text" required>
+        </p>
+
+        <div class="container-address-country">
+            <div>
+                <label class="label label__shipping--country" for="country">Country</label>
+                <div class="content-field__shipping--country">
+                    <p class="field field__shipping--country">
+                        <i class="material-icons form__icons">public</i>
+                        <i class="material-icons icon--select">expand_more</i>
+                    </p>
+                </div>
+            </div>
+            <div>
+                <label class="label label__shipping--zipCode" for="zip-code">Zip Code</label>
+                <p class="field field--text field__shipping--zipCode">
+                    <i class="material-icons form__icons">markunread_mailbox</i>
+                    <input type="text" name="postal-code" id="zip-code" class="input input--text" minlength="3" required>
+                </p>
+            </div>
+        </div>
+    </fieldset>
+    <!-- Checkbox save info -->
+    <p class="field field__saveInfo">
+        <input type="checkbox" name="s-info" id="save-info" class="saveInfo--pointer">
+        <label class="label label__saveInfo saveInfo--pointer" for="save-info">Remember Me</label>                
+    </p>
+    <!-- continue button -->
+    <div class="container__form__btn">
+        <button type="submit" class="form__btn">CONTINUE</button>
+    </div>
+</form>
+    </main>
+</div>
+
+
+
+<footer class="footer">
+    <div class="additional-container">
+        <div class="footer-container about">
+            <h3 class="footer-titlem">About Us</h3>
+            <p class="footer-text" style="width:1000px">aक्षर is an initiative aimed at promoting inclusive literacy and sustainable consumption. Focused on the 4th and 12th SDGs, our mission is to bridge the gap between book donors, sellers and recipients, facilitating the transfer of knowledge and fostering a culture of learning. Through our platform, we connect individuals and organizations, empowering them to contribute to a more equitable and literate society.</p>
+        </div>
+    </div>
+    <div class="footer-container menu">
+        <h3 class="footer-title">Menu</h3>
+        <ul class="footer-menu">
+            <li><a href="{% url 'catalog' %}"  target="blank" class="footer-link">Catalog</a></li>
+            <li><a href="{% url 'account' %}" class="footer-link">My Account</a></li>
+            <li><a href="{% url 'orders' %}" class="footer-link">My Orders</a></li>
+            <li><a href="#" class="footer-link">My Rewards</a></li>
+        </ul>
+    </div>
+    <div class="footer-container communities">
+        <h3 class="footer-title">Communities</h3>
+        <ul class="footer-menu">
+            <li><a href="#donors-section" class="footer-link">Donors</a></li>
+            <li><a href="#our-organisations" class="footer-link">Investors</a></li>
+            <li><a href="#our-organisations" class="footer-link">Organisations</a></li>
+            <li><a href="#donors-section" class="footer-link">Creators</a></li>
+        </ul>
+    </div>
+    <div class="footer-container contactus">
+      <h3 class="footer-title">Contact Us</h3>
+      <ul class="footer-menu">
+          <li><a href="https://www.instagram.com" target="_blank" class="footer-link">Instagram</a></li>
+          <li><a href="https://www.linkedin.com/feed/" target="_blank" class="footer-link">LinkedIn</a></li>
+          <li><a href="mailto:hehahuho9@gmail.com" target="_blank" class="footer-link">Gmail</a></li>
+          <li><a href="#" target="blank" class="footer-link">+91 123456789</a></li>
+      </ul>
+  </div>
+</footer>
+
+</body>
+</html>
