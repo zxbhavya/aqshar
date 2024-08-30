@@ -1,0 +1,235 @@
+ 
+        body {
+            /* background-color: #ede7e7; */
+            background-image: linear-gradient(to right, #f7f2eb , #bad6eb);
+            font-family: "cormorant garamond", serif;
+            font-weight: 550;
+            /* font-style: italic; */
+            margin: 0;
+            padding: 0;
+          }
+          .top-space {
+            height: 20px;
+            width: 100%;
+            /* background-color: #ede7e7;  */
+            background-image: linear-gradient(to right, #f7f2eb , #bad6eb);
+          }
+          
+          .content {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          .container {
+            /* border: 3px solid #757C88; */
+            width: 906px;
+            height: 262px;
+            /* background-color: #eacda3;  */
+            /* background-image: linear-gradient(to bottom right,#3E5151 ,#DECBA4); */
+            margin-top: 20px;
+            position: relative;
+          }
+          .book-lovers {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #334eac; 
+            text-align: center;
+            width: 453px;
+            height: 262px;
+            line-height: 262px;
+            font-size: 50px;
+          }
+          .image-space {
+            width: 906px;
+            height: 384px;
+            background-color: #081f5c; 
+           /* background-image: linear-gradient(to bottom right,#3E5151 ,#DECBA4); */
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            /* border: 10px solid #ffffff;  */
+          }
+          .sell-donate-section {
+            width: 438px;
+            height: 50px;
+            background-color: #081f5c;
+            color: #bad6eb; 
+            text-align: center;
+            line-height: 50px;
+            display: center;
+            font-size: 26px;
+            margin: 15px;
+            margin-bottom: 0%;
+          }
+          .forsell, 
+          .forbuy {
+          width: 438px;
+          height: 275px;
+          margin-top: 0px;
+            background-color: #bad6eb;
+            color:  #081f5c;
+            text-align: center;
+            line-height: 100px;
+            display: center;
+            font-size: 26px;
+            margin: 15px;
+            margin-bottom: 20px;
+            /* width: 398px;
+          background-color: #bad6eb;
+          color: #081f5c; 
+          margin: 15px;
+          text-align: left;
+          font-size: 22px;
+          display: flex;
+          line-height: 100px; */
+          /* justify-content: bottom;  */
+          /* Center the content horizontally */
+          /* flex-direction: column; */
+          
+          }
+          .forsell li, 
+          .forbuy li {
+          color: #bad6eb;
+          list-style-type: none;
+          margin-bottom: 5px;
+          align-items: center; /* Center the content vertically */
+          }
+          
+          .navbar {
+            /* width: 100%; */
+            /* background-color: #081f5c; 
+            padding: 10px 0;*/
+            text-align: right; 
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background-color: #081f5c;
+          color: #bad6eb;
+          padding: 10px 20px;
+          }
+  
+          .logo {
+          font-size: 24px;
+          font-weight: bold;
+          }
+          .navbar a {
+            color: #bad6eb; /* white text */
+            text-decoration: none;
+            margin: 0 20px;
+            
+          }
+          .footer {
+          background-color: #bad6eb; /* off-white background */
+          margin: 10px;
+          border-top: 5px solid #081f5c;
+          /* border: 5px solid #8f9779; */
+          padding: 10px;
+          display: flex;
+          justify-content: space-between;
+          align-items: left;
+          }
+  
+          .additional-container {
+          width: 950px;
+          margin: 0 auto; /* Center-align the container */
+          /* background-color: #DECBA4;  */
+          padding: 10px; /* Add padding for spacing */
+          
+          }
+          
+          .footer-container {
+          /* border: 5px solid #000000; */
+          text-align: left; /* Center-align content */
+          margin-right: 20px;
+          width: 80%;
+          }
+          
+          .about {
+            width: 100%; 
+          
+            /* 50% width for the About section */
+          }
+          .nav-about{
+              color: #bad6eb;
+          }
+          .dropdown{
+              display: none;
+              position: absolute;
+              margin-top: 20px;
+              /* display: inline-block; */
+          }
+          .nav-about:hover + .dropdown{
+              display: block;
+              background-color: #081f5c;
+              opacity: 0.9;
+              margin-right: 5px;
+              border-radius: 2%;
+              padding: 20px;
+              border: 10px solid #081f5c;
+              color: #bad6eb;
+              text-align: justify;
+  
+              /* color: red; */
+          }
+          .menu,
+          .communities,
+          .contactus  {
+          display: flex;
+          margin-left: auto; /* Shift to the right */
+          width: 250px;
+          font-size: 18px;
+          flex-direction: column;
+          align-items: left;
+          }
+          .footer-title {
+          margin-left: 20px;
+          border-radius: 1%;
+          border-color: #bad6eb;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 25px;
+            color: #081f5c; 
+          }
+          .footer-titlem {
+          /* margin-left: 20px; */
+          border-radius: 1%;
+          border-color: #bad6eb;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 25px;
+            color: #081f5c; 
+          
+          }
+          
+          .footer-text {
+            /* color: #ede7e7; */
+            text-align: left;
+            font-size: 19px;
+            color: #081f5c;
+          
+          }
+          
+          .footer-menu {
+            list-style-type: none;
+            padding: 0px;
+            margin-left: 20px ;
+          
+          }
+          .about-sections {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+          
+          }
+          .footer-link {
+            /* color: #ede7e7; */
+            text-decoration: none;
+            color: #081f5c;
+          }
+          .footer-link:hover {
+            color: #7096d1;
+          }
+          
